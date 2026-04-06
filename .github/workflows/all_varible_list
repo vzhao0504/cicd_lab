@@ -1,0 +1,20 @@
+name: List All Variables
+on: workflow_dispatch
+
+jobs:
+  debug-vars:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dump GitHub Context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
+
+      - name: Dump Vars and Secrets Context
+        # Note: Secrets are masked (***) for security
+        env:
+          VARS_CONTEXT: ${{ toJson(vars) }}
+          SECRETS_CONTEXT: ${{ toJson(secrets) }}
+        run: |
+          echo "Custom Variables: $VARS_CONTEXT"
+          echo "Secrets: $SECRETS_CONTEXT"
