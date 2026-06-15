@@ -31,7 +31,7 @@ jobs:
       - name: Build and Push Docker Image
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          REPO_NAME: fzhao0504/lab
+          REPO_NAME: argo
         run: |
           docker build -t $ECR_REGISTRY/$REPO_NAME:${{ github.sha }} .
           docker push $ECR_REGISTRY/$REPO_NAME:${{ github.sha }}
