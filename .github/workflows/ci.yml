@@ -33,5 +33,8 @@ jobs:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           REPO_NAME: argo
         run: |
-          docker build -t $ECR_REGISTRY/$REPO_NAME:${{ github.sha }} .
-          docker push $ECR_REGISTRY/$REPO_NAME:${{ github.sha }}
+          docker build -t "908416136195.dkr.ecr.us-east-1.amazonaws.com/argo:111" .
+          docker push "908416136195.dkr.ecr.us-east-1.amazonaws.com/argo:111"
+
+#          docker build -t $ECR_REGISTRY/$REPO_NAME:${{ github.sha }} .
+#          docker push $ECR_REGISTRY/$REPO_NAME:${{ github.sha }}
